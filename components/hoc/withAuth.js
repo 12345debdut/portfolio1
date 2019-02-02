@@ -10,8 +10,9 @@ export default function(role){
             }
             renderProtectedPage(){
                 const {isAuthenticated,user}=this.props.auth;
-                const userRole=user && user[`${process.env.NAMESPACE}/role`];
+                const userRole=user && user[`${process.env.NAMESPACE}/roles`];
                 let isAuthorized=false;
+                console.log(userRole);
                 if(role){
                     if(userRole && userRole===role){
                         isAuthorized=true;

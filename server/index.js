@@ -1,4 +1,5 @@
 const express = require('express')
+const compression=require('compression');
 const next = require('next')
 const mongoose=require('mongoose')
 var bodyParser = require('body-parser')
@@ -41,6 +42,8 @@ mongoose.connect(config.DB_URI,{useNewUrlParser:true}).then(()=>{
 app.prepare()
 .then(() => {
   const server = express()
+  //Compression middleware
+  server.use(compression());
   //Body parser middleware
   server.use(bodyParser.json());
   //Middleware for book routes

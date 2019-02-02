@@ -1,9 +1,8 @@
 import axios from 'axios'
 import cookies from 'js-cookie';
 import {getCookiesFromReq} from '../helpers/utils';
-import { rejects } from 'assert';
 const axiosInstance=axios.create({
-    baseURL:'http://localhost:3000/api/v1',
+    baseURL:`${process.env.BASE_URL}/api/v1`,
     timeout:3000
 })
 const setAuthHeader=(req)=>{
